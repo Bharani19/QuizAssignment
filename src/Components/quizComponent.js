@@ -4,7 +4,8 @@ let result = Quiz;
 export default class QuizComponent extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
+        this.state = 
+        {
             Q1answers: 'Thar',
             Q2answers: 'Russia',
             Q3answers: 'Cotton',
@@ -47,10 +48,8 @@ export default class QuizComponent extends React.Component {
                                 this.setState({ answer2: answer })
                                 return
                             }
-
                         }
                         case 'Black soils are best suited for the cultivation of ?': {
-                            console.log("indide 3")
                             if (this.state.Q3answers == answer) {
                                 console.log("Answer for question :", innerLoop.question, "Entered by user is", answer, " and it is right ")
                                 this.setState({ answer3: this.state.Q3answers })
@@ -89,13 +88,15 @@ export default class QuizComponent extends React.Component {
 
         return (
 
-            <div className="card" style={{ margin: "10px" }}>
+            <div className="card" style={{ margin: "50px" }}>
+
                 <div className="card-body" style={{ backgroundColor: "lightgrey", width: "100%", padding: "10px" }}>
+                    <h1 style={{fontFamily:"georgia",textDecoration:"underline"}}>Quiz</h1>
                     {
                         result.Quiz.map((questions, id) =>
                             <div key={id + 1}>
                                 <div style={{ display: "inline" }}>
-                                    <p key={id + 1}  >{questions.question}</p>
+                                    <p key={id + 1} style={{left:"0"}}  >{id+1} {questions.question}</p>
                                 </div>
                                 <div style={{ display: "inline" }}>
                                     <select name="userAnswers" onChange={this.handleClick} >
@@ -111,28 +112,29 @@ export default class QuizComponent extends React.Component {
                     <button className="btn btn-primary" style={{ float: "right" }} type="submit" onClick={this.handleSubmit}>Result</button>
                 </div>
                 {this.state.submitted &&
-                    <div className="card-body" style={{ backgroundColor: "silver" }}>
-                        <p >Answers entered By User is :</p>
-                        <ul >
+                    <div className="card-body" style={{ backgroundColor: "silver",float:"left",fontFamily:"georgia" }}>
+                        <div style={{display:"inline",float:"left"}}>
+                        <p style={{textDecoration:"underline"}}>User Answers :</p>
+                        <ul style={{listStyle:"none"}}>
                             <li>{this.state.answer1 ? this.state.answer1 : 'Not answered'}</li>
                             <li>{this.state.answer2 ? this.state.answer2 : 'Not answered'}</li>
                             <li>{this.state.answer3 ? this.state.answer3 : 'Not answered'}</li>
                             <li>{this.state.answer4 ? this.state.answer4 : 'Not answered'}</li>
                         </ul>
-                        <p style={{ color: "green" }}>
+                        </div>
+                        <div >
+                        <p style={{ color: "green",textDecoration:"underline" }}>
                             Correct Answer is :</p>
-                        <ul style={{ color: "green", textDecoration: "underline" }}>
+                        <ul style={{ listStyle:"none",color: "green", textDecoration: "underline",fontWeight:"bold" }}>
                             <li >{this.state.Q1answers}</li>
                             <li >{this.state.Q2answers}</li>
                             <li >{this.state.Q3answers}</li>
                             <li >{this.state.Q4answers}</li>
                         </ul>
+                        </div>
                     </div>
                 }
             </div>
-
-
-
         )
     }
 }
