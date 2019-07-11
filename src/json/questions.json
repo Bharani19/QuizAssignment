@@ -1,0 +1,18 @@
+{"Quiz":
+	[
+		{"question":"The World Largest desert is ?",
+		"answers":["Thar","Kalahari","Sahara","Sonoran"]
+		},
+		{"question":"Country that has the highest in Barley Production ?",
+		"answers":["China","India","Russia","France"]		
+		},
+		{"question":"Black soils are best suited for the cultivation of ?",
+		"answers":["Cotton","Rice","Cereals","SugarCane"]	
+		},
+		{"question":"The device used for measuring altitudes is ?",
+            "answers":["Altimeter","Ammeter","Audiometer","Galvanometer"]	
+		}
+		
+	
+	]
+}
